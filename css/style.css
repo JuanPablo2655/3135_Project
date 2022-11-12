@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+:root {
+    --primary-bg-color: #1D1D1E;
+    --primary-text-color: #F2F1F1;
+    --opacity: 55%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 5% auto 5%;
+    grid-template-columns: 25% auto 25%;
+    grid-template-areas:
+        "header header header"
+        ". main ."
+        "footer footer footer";
+    min-height: 100vh;
+    background-color: var(--primary-bg-color);
+    font-family: 'Abel', sans-serif;
+}
+
+body header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: header;
+    color: var(--primary-text-color);
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 20px 0 0;
+    gap: 22px;
+}
+
+body header p {
+    font-size: 20px;
+    padding: 0 0 0 20px;
+}
+
+body header p:hover {
+    opacity: var(--opacity)
+}
+
+body header a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+}
+
+body header ul {
+    list-style-type: none;
+    display: flex;
+    font-size: 20px;
+    justify-content: flex-end;
+    gap: 22px;
+}
+
+body header ul li:hover {
+    opacity: var(--opacity)
+}
+
+.active {
+    opacity: var(--opacity)
+}
+
+body header ul li a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+}
+
+body header button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--primary-text-color);
+    font-size: 20px;
+    justify-content: flex-end;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--primary-text-color);
+}
+
+body main h1 {
+    font-size: 60px;
+}
+
+body main ul {
+    list-style-type: none;
+    display: flex;
+    margin-top: 5px;
+    font-size: 25px;
+    gap: 20px;
+}
+
+body main ul li:hover {
+    opacity: var(--opacity)
+}
+
+body main ul li a{
+    text-decoration: none;
+    color: var(--primary-text-color);
+}
+
+body footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-text-color);
+    font-size: 18px;
+}
+
+body main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    margin: 10% 0 0 0;
+}
+
+body main form input, textarea {
+    font: inherit;
+    font-size: 18px;
+}
+
+body main form input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    border: none;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid var(--primary-text-color);
+    background-color: transparent;
+    color: #F2F1F1;
+}
+
+body main form input[type="submit"] {
+    border: 1px solid #F2F1F1;
+    border-radius: 5px;
+    padding: 10px 40px 10px 40px;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--primary-text-color);
+    /* font-size: 20px; */
+    margin: 10px 0;
+}
+
+.content-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 9% 0 0 0;
+    font-size: 22px;
+}
+
+.content-header h2 {
+    font-weight: normal;
+}
+
+.content-header p {
+    color: var(--primary-text-color);
+    opacity: var(--opacity)
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0 0 0;
+    font-size: 20px;
+    gap: 20px;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #7f7f7f;
+    border-radius: 5px;
+    padding: 15px 60px 15px 60px;
+    gap: 10px;
+}
+
+.project i {
+    color: #7f7f7f;
+}
+
+.project div {
+    /* margin: 0 0 0 10px; */
+}
+
+.project div h3 {
+    font-weight: normal;
+}
+
+.project div p {
+    color: var(--primary-text-color);
+    opacity: var(--opacity)
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0 0 0;
+    width: 70%;
+    font-size: 18px;
+    gap: 30px;
+}
+
+.card img {
+    border-radius: var(--opacity)
+}
+
+.card p {
+    /* margin: 30px 0 0 0; */
+}
+
+.main-blogs {
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0 0 0;
+    font-size: 20px;
+    gap: 24px;
+}
+
+.blog-year {
+    display: flex;
+    gap: 22px;
+}
+
+.blog-year h2 {
+    /* margin: 10px 22px 0 0; */
+    font-weight: normal;
+    color: var(--primary-text-color);
+    opacity: var(--opacity)
+}
+
+.blogs {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.blog {
+    /* margin: 12px 0; */
+}
+
+.blog h3 {
+    font-weight: normal;
+    color: var(--primary-text-color);
+}
+
+.blog p {
+    color: var(--primary-text-color);
+    opacity: var(--opacity)
+}

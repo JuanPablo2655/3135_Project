@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Project 1",
+		"description": "Project description",
+		"stars": 0,
+		"link": ""
+	},
+	{
+		"name": "Project 2",
+		"description": "Project description",
+		"stars": 1,
+		"link": ""
+	},
+	{
+		"name": "Project 3",
+		"description": "Project description",
+		"stars": 9,
+		"link": ""
+	},
+	{
+		"name": "Project 4",
+		"description": "Project description",
+		"stars": 2,
+		"link": ""
+	},
+	{
+		"name": "Project 5",
+		"description": "Project description",
+		"stars": 4,
+		"link": ""
+	},
+	{
+		"name": "Project 6",
+		"description": "Project description",
+		"stars": 7,
+		"link": ""
+	}
+]

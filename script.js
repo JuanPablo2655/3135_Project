@@ -33,10 +33,12 @@ _blogs().then(data => {
 	const years = [...new Set(data.map(d => d.date.split('-')[0]))].sort((a, b) => b - a);
 	console.log(years);
 	years.forEach(y => {
-		addYear(y);
-		data.filter(d => d.date.split('-')[0] === y).forEach(d => addBlog(d));
+		const year = addYear(y);
+		data
+			.filter(d => d.date.split('-')[0] === y)
+			.sort((a, b) => new Date(b.date.replace(/-/g, '/')) - new Date(a.date.replace(/-/g, '/')))
+			.forEach(d => addBlog(year, d));
 	});
-	// data.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(d => addBlog(d));
 });
 
 function addYear(y) {
@@ -46,9 +48,24 @@ function addYear(y) {
 	const h2 = document.createElement('h2');
 	h2.textContent = y;
 	year.append(h2);
-	const blogs = document.createElement('div');
-	blogs.classList.add('blogs');
-	year.append(blogs);
+	const _blogs = document.createElement('div');
+	_blogs.classList.add('blogs');
+	year.append(_blogs);
+	return _blogs;
 }
 
-function addBlog(d) {}
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function addBlog(year, d) {
+	const div = document.createElement('div');
+	div.classList.add('blog');
+	const h3 = document.createElement('h3');
+	h3.innerText = d.name;
+	div.append(h3);
+	const p = document.createElement('p');
+	const date = new Date(d.date.replace(/-/g, '/'));
+	console.log(d.date, date);
+	p.innerText = `${months[date.getMonth()]} ${date.getDate()}`;
+	div.append(p);
+	year.append(div);
+}

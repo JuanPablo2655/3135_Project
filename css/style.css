@@ -45,9 +45,9 @@ body header p {
     padding: 0 0 0 20px;
 }
 
-body header p:hover {
+/* body header p:hover {
     opacity: var(--opacity)
-}
+} */
 
 body header a {
     text-decoration: none;
@@ -62,12 +62,17 @@ body header ul {
     gap: 22px;
 }
 
+body header ul li {
+    opacity: var(--opacity);
+    transition: opacity 80ms ease-in;
+}
+
 body header ul li:hover {
-    opacity: var(--opacity)
+    opacity: 100%;
 }
 
 .active {
-    opacity: var(--opacity)
+    opacity: 100%
 }
 
 body header ul li a {
@@ -82,6 +87,12 @@ body header button {
     color: var(--primary-text-color);
     font-size: 20px;
     justify-content: flex-end;
+    opacity: var(--opacity);
+    transition: opacity 80ms ease-in;
+}
+
+body header button:hover {
+    opacity: 100%;
 }
 
 .welcome {
@@ -103,7 +114,7 @@ body main h1 {
     font-size: 60px;
 }
 
-body main ul {
+.welcome ul {
     list-style-type: none;
     display: flex;
     margin-top: 5px;
@@ -111,11 +122,16 @@ body main ul {
     gap: 20px;
 }
 
-body main ul li:hover {
-    opacity: var(--opacity)
+.welcome ul li {
+    opacity: var(--opacity);
+    transition: opacity 80ms ease-in;
 }
 
-body main ul li a{
+.welcome ul li:hover {
+    opacity: 100%
+}
+
+.welcome ul li a {
     text-decoration: none;
     color: var(--primary-text-color);
 }
@@ -193,10 +209,18 @@ body main form input[type="submit"] {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 1px solid #7f7f7f;
+    /* border: 1px solid #7f7f7f; */
     border-radius: 5px;
-    padding: 15px 60px 15px 60px;
+    padding: 15px 30px 15px 30px;
     gap: 10px;
+    opacity: 75%;
+    background-color: inherit;
+    transition: opacity 80ms ease-in, background-color 80ms ease-in-out;
+}
+
+.project:hover {
+    opacity: 100%;
+    background-color: #7f7f7f19;
 }
 
 .project i {
@@ -261,7 +285,12 @@ body main form input[type="submit"] {
 }
 
 .blog {
-    /* margin: 12px 0; */
+    opacity: 75%;
+    transition: opacity 80ms ease-in-out;
+}
+
+.blog:hover {
+    opacity: 100%;
 }
 
 .blog h3 {

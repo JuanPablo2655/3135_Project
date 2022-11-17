@@ -14,7 +14,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 4rem auto 4rem;
+    grid-template-rows: 3rem auto 3rem;
     grid-template-columns: 25% auto 25%;
     grid-template-areas:
         "header header header"

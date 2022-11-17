@@ -1,46 +1,46 @@
 [
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog Title I don't know something here",
 		"body": "blog 1 body",
 		"date": "2023-02-10"
 	},
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog Title some variance",
 		"body": "blog 2 body",
 		"date": "2023-09-12"
 	},
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog Title",
 		"body": "blog 3 body",
 		"date": "2024-03-06"
 	},
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog Title I don't know",
 		"body": "blog 4 body",
 		"date": "2025-05-10"
 	},
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog Title some variance part 2",
 		"body": "blog 5 body",
 		"date": "2023-11-15"
 	},
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog",
 		"body": "blog 6 body",
 		"date": "2024-12-20"
 	},
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog Title something",
 		"body": "blog 7 body",
 		"date": "2024-7-4"
 	},
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog Title",
 		"body": "blog 8 body",
 		"date": "2025-6-14"
 	},
 	{
-		"name": "Blog Title I don't know something here to make the title long",
+		"name": "Blog Title I don't know something here",
 		"body": "blog 9 body",
 		"date": "2025-11-4"
 	}

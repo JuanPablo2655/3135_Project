@@ -1,7 +1,6 @@
 'use strict';
 // Projects
 const projects = document.querySelector('.projects');
-// console.log(projects);
 
 const _projects = async () => await (await fetch('./data/projects.json')).json();
 _projects().then(data => {
@@ -27,11 +26,9 @@ function addProject(d) {
 // Blogs
 
 const blogs = document.querySelector('.main-blogs');
-console.log(blogs);
 const _blogs = async () => await (await fetch('./data/blogs.json')).json();
 _blogs().then(data => {
 	const years = [...new Set(data.map(d => d.date.split('-')[0]))].sort((a, b) => b - a);
-	console.log(years);
 	years.forEach(y => {
 		const year = addYear(y);
 		data
@@ -64,8 +61,7 @@ function addBlog(year, d) {
 	div.append(h3);
 	const p = document.createElement('p');
 	const date = new Date(d.date.replace(/-/g, '/'));
-	console.log(d.date, date);
-	p.innerText = `${months[date.getMonth()]} ${date.getDate()}`;
+	p.innerText = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 	div.append(p);
 	year.append(div);
 }

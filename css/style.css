@@ -202,7 +202,7 @@ body main form input[type="submit"] {
     align-items: center;
     margin: 5% 0 0 0;
     font-size: 20px;
-    gap: 20px;
+    gap: 10px;
 }
 
 .project {

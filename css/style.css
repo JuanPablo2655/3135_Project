@@ -33,7 +33,7 @@ body header {
     color: var(--primary-text-color);
 }
 
-nav {
+body header nav {
     display: flex;
     justify-content: flex-end;
     margin: 0 20px 0 0;
@@ -238,6 +238,34 @@ body main form input[type="submit"] {
 .project div p {
     color: var(--primary-text-color);
     opacity: var(--opacity)
+}
+
+nav.sort ul {
+    list-style-type: none;
+    display: flex;
+    /* border-bottom: 1px solid #F2F1F1; */
+}
+
+nav.sort ul li {
+    opacity: 75%;
+    border-bottom: 1px solid #F2F1F1;
+    padding: 0 40px;
+}
+
+nav.sort ul li button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: inherit;
+    font-size: 20px;
+}
+
+nav.sort ul li:hover {
+    opacity: 100%;
+}
+
+nav.sort ul li.active {
+    opacity: 100%
 }
 
 .card {

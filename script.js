@@ -7,6 +7,26 @@ _projects().then(data => {
 	data.sort((a, b) => b.stars - a.stars).forEach(d => addProject(d));
 });
 
+const projectButtons = document.querySelectorAll('.projects .sort button');
+projectButtons.forEach(b => {
+	b.addEventListener('click', () => {
+		console.log(b);
+		document.querySelectorAll('.sort li').forEach(l => l.classList.toggle('active'));
+		// projects.innerHTML =
+		// 	'<nav class="sort"><ul><li class="active"><button>Date</button></li><li><button>Stars</button></li></ul></nav>';
+		document.querySelectorAll('.project').forEach(p => p.remove());
+		_projects().then(data => {
+			if (b.innerText === 'Stars') {
+				data.sort((a, b) => b.stars - a.stars).forEach(d => addProject(d));
+			} else if (b.innerText === 'Date') {
+				data
+					.sort((a, b) => new Date(b.date.replace(/-/g, '/')) - new Date(a.date.replace(/-/g, '/')))
+					.forEach(d => addProject(d));
+			}
+		});
+	});
+});
+
 function addProject(d) {
 	const project = document.createElement('div');
 	project.classList.add('project');
@@ -38,6 +58,35 @@ _blogs().then(data => {
 	});
 });
 
+const blogButtons = document.querySelectorAll('.main-blogs .sort button');
+blogButtons.forEach(b => {
+	b.addEventListener('click', () => {
+		document.querySelectorAll('.sort li').forEach(l => l.classList.toggle('active'));
+		document.querySelectorAll('.blog-year').forEach(p => p.remove());
+		_blogs().then(data => {
+			if (b.innerText === 'Ascend') {
+				const years = [...new Set(data.map(d => d.date.split('-')[0]))].sort((a, b) => a - b);
+				years.forEach(y => {
+					const year = addYear(y);
+					data
+						.filter(d => d.date.split('-')[0] === y)
+						.sort((a, b) => new Date(a.date.replace(/-/g, '/')) - new Date(b.date.replace(/-/g, '/')))
+						.forEach(d => addBlog(year, d));
+				});
+			} else if (b.innerText === 'Descend') {
+				const years = [...new Set(data.map(d => d.date.split('-')[0]))].sort((a, b) => b - a);
+				years.forEach(y => {
+					const year = addYear(y);
+					data
+						.filter(d => d.date.split('-')[0] === y)
+						.sort((a, b) => new Date(b.date.replace(/-/g, '/')) - new Date(a.date.replace(/-/g, '/')))
+						.forEach(d => addBlog(year, d));
+				});
+			}
+		});
+	});
+});
+
 function addYear(y) {
 	const year = document.createElement('div');
 	year.classList.add('blog-year');
@@ -65,3 +114,11 @@ function addBlog(year, d) {
 	div.append(p);
 	year.append(div);
 }
+
+// Theme
+const theme = document.querySelector('#mode');
+localStorage.getItem('theme') === 'dark' ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+theme.addEventListener('click', () => {
+	document.body.classList.toggle('dark');
+	localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+});

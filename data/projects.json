@@ -3,36 +3,42 @@
 		"name": "Project 1",
 		"description": "Project description",
 		"stars": 0,
-		"link": ""
+		"link": "",
+		"date": "2023-02-10"
 	},
 	{
 		"name": "Project 2",
 		"description": "Project description",
 		"stars": 1,
-		"link": ""
+		"link": "",
+		"date": "2024-03-06"
 	},
 	{
 		"name": "Project 3",
 		"description": "Project description",
 		"stars": 9,
-		"link": ""
+		"link": "",
+		"date": "2023-09-12"
 	},
 	{
 		"name": "Project 4",
 		"description": "Project description",
 		"stars": 2,
-		"link": ""
+		"link": "",
+		"date": "2024-7-4"
 	},
 	{
 		"name": "Project 5",
 		"description": "Project description",
 		"stars": 4,
-		"link": ""
+		"link": "",
+		"date": "2025-11-4"
 	},
 	{
 		"name": "Project 6",
 		"description": "Project description",
 		"stars": 7,
-		"link": ""
+		"link": "",
+		"date": "2025-06-14"
 	}
 ]

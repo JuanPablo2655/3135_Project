@@ -1,8 +1,36 @@
 'use strict';
 // Projects
+const repos = [];
 const projects = document.querySelector('.projects');
 
-const _projects = async () => await (await fetch('./data/projects.json')).json();
+async function getRepos() {
+	if (repos.length > 0) return repos;
+	const main = await (await fetch('https://api.github.com/users/ZackBarbari/repos?sort=created')).json();
+	if (!main) throw new Error('No repos found');
+	main.map(r => {
+		const newR = {
+			name: r.name,
+			description: r.description,
+			stars: r.stargazers_count,
+			date: new Date(r.created_at),
+		};
+		repos.push(newR);
+	});
+	const secondary = await (await fetch('https://api.github.com/users/Atrilan/repos?sort=updated')).json();
+	if (!secondary) throw new Error('No repos found');
+	secondary.map(r => {
+		const newR = {
+			name: r.name,
+			description: r.description,
+			stars: r.stargazers_count,
+			date: new Date(r.created_at),
+		};
+		repos.push(newR);
+	});
+	return repos;
+}
+
+const _projects = async () => await getRepos();
 _projects().then(data => {
 	data.sort((a, b) => b.stars - a.stars).forEach(d => addProject(d));
 });
@@ -19,9 +47,7 @@ projectButtons.forEach(b => {
 			if (b.innerText === 'Stars') {
 				data.sort((a, b) => b.stars - a.stars).forEach(d => addProject(d));
 			} else if (b.innerText === 'Date') {
-				data
-					.sort((a, b) => new Date(b.date.replace(/-/g, '/')) - new Date(a.date.replace(/-/g, '/')))
-					.forEach(d => addProject(d));
+				data.sort((a, b) => b.date - a.date).forEach(d => addProject(d));
 			}
 		});
 	});
@@ -37,6 +63,9 @@ function addProject(d) {
 	project.append(div);
 	const h3 = document.createElement('h3');
 	h3.textContent = d.name;
+	const span = document.createElement('span');
+	span.textContent = d.stars;
+	h3.append(span);
 	const p = document.createElement('p');
 	p.textContent = d.description;
 	div.append(h3, p);
@@ -48,6 +77,10 @@ function addProject(d) {
 const blogs = document.querySelector('.main-blogs');
 const _blogs = async () => await (await fetch('./data/blogs.json')).json();
 _blogs().then(data => {
+	if (data.length === 0) {
+		blogs.innerHTML = '<h2>No blogs found</h2>';
+		return;
+	}
 	const years = [...new Set(data.map(d => d.date.split('-')[0]))].sort((a, b) => b - a);
 	years.forEach(y => {
 		const year = addYear(y);

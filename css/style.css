@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Inter&display=swap');
 
 :root {
     --primary-bg-color: #edf0f3;
@@ -221,6 +221,7 @@ body main form input[type="submit"] {
     gap: 10px;
     opacity: 75%;
     background-color: inherit;
+    width: 300px;
     transition: opacity 80ms ease-in, background-color 80ms ease-in-out;
 }
 
@@ -239,11 +240,14 @@ body main form input[type="submit"] {
 
 .project div h3 {
     font-weight: normal;
+    display: flex;
+    justify-content: space-between;
 }
 
 .project div p {
     color: var(--primary-text-color);
-    opacity: var(--opacity)
+    opacity: var(--opacity);
+    font-size: 18px;
 }
 
 nav.sort ul {
